@@ -4,7 +4,6 @@ import re
 import logging
 import urllib.parse
 from uuid import UUID
-from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from langchain.agents import create_sql_agent
 from langchain.agents.agent_toolkits import SQLDatabaseToolkit
