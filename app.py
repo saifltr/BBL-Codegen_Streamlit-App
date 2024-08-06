@@ -28,7 +28,6 @@ st.write(
 
 
 def create_postgres_engine():
-    """Create and return a PostgreSQL engine using environment variables."""
     try:
         username = os.getenv("DB_USERNAME")
         password = os.getenv("DB_PASSWORD")
@@ -41,10 +40,11 @@ def create_postgres_engine():
 
         encoded_password = urllib.parse.quote_plus(password)
         postgres_uri = f"postgresql://{username}:{encoded_password}@{host}:{port}/{database_name}"
+        st.write(f"Attempting to connect to: {host}:{port}/{database_name} as {username}")
         engine = create_engine(postgres_uri)
         return engine, postgres_uri
     except Exception as e:
-        logger.error(f"Failed to create Postgres engine: {str(e)}")
+        st.error(f"Failed to create Postgres engine: {str(e)}")
         raise
 
 def setup_sqlchain_agent(postgres_uri):
