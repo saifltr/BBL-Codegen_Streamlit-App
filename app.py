@@ -29,11 +29,11 @@ st.write(
 
 def create_postgres_engine():
     try:
-        username = os.getenv("DB_USERNAME")
-        password = os.getenv("DB_PASSWORD")
-        host = os.getenv("DB_HOST")
-        database_name = os.getenv("DB_NAME")
-        port = os.getenv("DB_PORT")
+        username = "bugbuster_admin"
+        password = "9og@*xQe[ZUW"
+        host = "bugbusterslabs.postgres.database.azure.com"
+        database_name = "bugbustersdb"
+        port = 5432
 
         if not all([username, password, host, database_name, port]):
             raise ValueError("Missing required database environment variables")
