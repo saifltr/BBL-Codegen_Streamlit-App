@@ -4,5 +4,4 @@ uuid
 SQLAlchemy
 langchain
 langchain-community
-psycopg2
 psycopg2-binary
