@@ -13,12 +13,17 @@ from langchain_community.chat_models import ChatOpenAI
 from langchain.agents.agent_types import AgentType
 from langchain.schema import HumanMessage
 
-# Set up logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
+st.set_page_config(page_title="BugBuster", page_icon="🐞", layout="wide")
 
-# Load environment variables
-load_dotenv()
+st.write(
+    os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"],
+    os.environ["DB_USERNAME"] == st.secrets["DB_USERNAME"],
+    os.environ["DB_PASSWORD"] == st.secrets["DB_PASSWORD"],
+    os.environ["DB_HOST"] == st.secrets["DB_HOST"],
+    os.environ["DB_NAME"] == st.secrets["DB_NAME"],
+    os.environ["DB_PORT"] == st.secrets["DB_PORT"],
+)
+
 
 def create_postgres_engine():
     """Create and return a PostgreSQL engine using environment variables."""
@@ -234,7 +239,6 @@ def generate_test_content(submission_data, tool='general', language=None):
         raise
 
 def main():
-    st.set_page_config(page_title="BugBuster", page_icon="🐞", layout="wide")
     
     st.title("🐞 BugBuster")
     st.subheader("Vulnerability Testing Assistant")
