@@ -63,8 +63,9 @@ def setup_sqlchain_agent(postgres_uri):
             toolkit=toolkit,
             verbose=True,
             agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+            handle_parsing_errors=True
         )
-        
+
         return agent_executor
     except Exception as e:
         logger.error(f"Failed to set up SQLChain agent: {str(e)}")
