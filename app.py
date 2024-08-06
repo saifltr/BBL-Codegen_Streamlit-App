@@ -14,6 +14,9 @@ from langchain.schema import HumanMessage
 
 st.set_page_config(page_title="BugBuster", page_icon="🐞", layout="wide")
 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
 st.write(
     os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"],
     os.environ["DB_USERNAME"] == st.secrets["DB_USERNAME"],
