@@ -3,3 +3,4 @@ urllib3
 uuid
 SQLAlchemy
 langchain
+langchain-community
